@@ -50,7 +50,7 @@ $(document).ready(function() {
             console.log('texstatus:' + JSON.stringify(textStatus));
             console.log('jqxHR: ' + JSON.stringify(jqXHR));
             // log a message to the console
-            if (textStatus == 'success') {
+            if (response.success == 'yes') {
                 console.log("Confirmed! Check your Pebble for flight updates!");
                 $('#second').hide();
                 $("#formscenter").append('<p>Confirmed! Check your Pebble for flight updates!</p>');
