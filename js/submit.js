@@ -46,11 +46,11 @@ $(document).ready(function() {
 
         // callback handler that will be called on success
         request.done(function (response, textStatus, jqXHR){
-            console.log(response);
-            console.log(textStatus);
-            console.log(jqXHR);
+            console.log('response:' + response);
+            console.log('texstatus:' + textStatus);
+            console.log('jqxHR: ' + jqXHR);
             // log a message to the console
-            if (response.success == 'yes') {
+            if (textStatus.success == 'yes') {
                 console.log("Confirmed! Check your Pebble for flight updates!");
                 $('#second').hide();
                 $("#formscenter").append('<p>Confirmed! Check your Pebble for flight updates!</p>');
