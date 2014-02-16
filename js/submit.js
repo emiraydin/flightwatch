@@ -28,7 +28,7 @@ $(document).ready(function() {
         // let's select and cache all the fields
         // var $inputs = $form.find("input");
         // serialize the data in the form
-        var serializedData = [];
+        var serializedData = {};
         serializedData.airline = $("#airline").val();
         serializedData.flight_no = $("#flight_no").val();
         serializedData.access_key = $("#access_key").val();
