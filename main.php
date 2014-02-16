@@ -8,7 +8,7 @@ $params = array_merge($_POST, $_GET);
 switch($params['feature']) {
 
 	case 'get_flight_info':
-		require_once('lib/Flight.php');
+		require_once('Flight.php');
 		$flight = new Flight($params['airline'], $params['flight_no']);
 		$result = $flight->getData();
 		break;

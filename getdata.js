@@ -1,23 +1,19 @@
-var the_key = null;
-ajax({ url: 'http://flightwatch.org/main.php?feature=generate_access_key', method: 'get', type: 'json', async: false }, function(data){
+ajax({ url: 'http://flightwatch.org/main.php?feature=generate_access_key', method: 'get', type: 'json'}, function(data){
   simply.title('Welcome! Here is your access key: ' + data.access_key);
-  the_key = data.access_key;
+  localStorage.setItem('access_key', data.access_key);
 });
 
-simply.title('Yo here it is again: ' + the_key);
+// simply.scrollable(true);
 
-// while(true) {
-// 	ajax({ url: 'http://flightwatch.org/main.php?feature=confirm_access_key&access_key=' + the_key, method: 'get', type: 'json' }, function(data){
-//   		if (data.confirmed==1) {
+var count = parseInt(localStorage.getItem('count')) || 0;
 
-//   			// Get the flight number using the access key
-//   			var airline, flight_no;
-//   			ajax({ url: 'http://flightwatch.org/main.php?feature=get_flight_from_access_key&access_key=' + the_key, method: 'get', type: 'json', async: false }, function(data){
-//   				simply.title(data.airline + ' ' + data.flightNumber + '\n' + data.flightStatusType + ": " + data.flightStatusDelay
-//   					+ '\n' + 'GATE: ' + data.gate + '\n' + data.origin + ' to ' + data.destination);
-// 			});
+simply.on('singleClick', function(e) {
+  if (e.button === 'up') {
+    simply.subtitle(++count);
+  } else if (e.button === 'down') {
+    simply.subtitle(--count);
+  }
+  localStorage.setItem('count', count);
+});
 
-//   			break;
-//   		}
-// 	});
-// }
+simply.text({ title: 'Counter', subtitle: count });
