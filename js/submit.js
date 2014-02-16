@@ -33,7 +33,7 @@ $(document).ready(function() {
         serializedData.flight_no = $("#flight_no").val();
         serializedData.access_key = $("#access_key").val();
         serializedData.feature = 'add_flight_to_access_key';
-        console.log('data: ' + JSON.stringifsy(serializedData);
+        console.log('data: ' + JSON.stringify(serializedData));
         // let's disable the inputs for the duration of the ajax request
         $inputs.prop("disabled", true);
 
