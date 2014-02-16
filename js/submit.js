@@ -46,9 +46,9 @@ $(document).ready(function() {
 
         // callback handler that will be called on success
         request.done(function (response, textStatus, jqXHR){
-            console.log('response:' + response);
-            console.log('texstatus:' + textStatus);
-            console.log('jqxHR: ' + jqXHR);
+            console.log('response:' + JSON.stringify(response));
+            console.log('texstatus:' + JSON.stringify(textStatus));
+            console.log('jqxHR: ' + JSON.stringify(jqXHR));
             // log a message to the console
             if (textStatus == 'success') {
                 console.log("Confirmed! Check your Pebble for flight updates!");
