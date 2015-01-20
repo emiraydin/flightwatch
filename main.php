@@ -3,7 +3,9 @@ header('Cache-Control: no-cache, must-revalidate');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 header('Content-Type: application/json');
 
-$params = array_merge($_POST, $_GET);
+// Warning: This code was written during a Hackathon and needs more work.
+// When using POST requests, take advantage of the request body for sending data.
+$params = empty($_POST) ? $_GET : $_POST;
 
 switch($params['feature']) {
 
@@ -37,7 +39,6 @@ switch($params['feature']) {
 		$key = new AccessKey($params['access_key']);
 		$result = $key->destroyAccessKey();
 		break;
-
 }
 
 // Print the end result
