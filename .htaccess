@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+
+    # Get flight info
+    RewriteRule ^api/flight/([^/]*)-([^/]*)(/?)$ /main.php?feature=get_flight_info&airline=$1&flight_no=$2 [L]
+
+    # Generate access key
+    RewriteRule ^api/generate(/?)$ /main.php?feature=generate_access_key [L]
+
+    # Add flight to access key
+    RewriteRule ^api/flight-to-key/([^/]*)-([^/]*)/([^/]*)(/?)$ /main.php?feature=add_flight_to_access_key&airline=$1&flight_no=$2&access_key=$3 [L]
+
+    # Get flight from access key
+    RewriteRule ^api/key-to-flight/([^/]*)(/?)$ /main.php?feature=get_flight_from_access_key&access_key=$1 [L]
+
+    # Confirm access key
+    RewriteRule ^api/confirm/([^/]*)(/?)$ /main.php?feature=confirm_access_key&access_key=$1 [L]
+
+    # Destroy access key
+    RewriteRule ^api/destroy/([^/]*)(/?)$ /main.php?feature=destroy_access_key&access_key=$1 [L]
+
+
+</IfModule>
